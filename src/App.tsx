@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
-import * as ProfilePicture from '../src/assets/images/michelle.jpg';
 
 const PortfolioWebsite = () => {
   const [currentPage, setCurrentPage] = useState('home');
@@ -17,22 +16,22 @@ const PortfolioWebsite = () => {
 
   const projects = [
     {
-      title: "Project One",
-      description: "A brief description of your amazing project and what technologies you used to build it.",
-      githubUrl: "https://github.com/MichelleNotTaylor/project-one",
+      title: "Dojo Blog",
+      description: "This project was part of an effort to master Typescript so I could apply my knowledge to my professional work.",
+      githubUrl: "https://github.com/MichelleNotTaylor/net-ninja-react",
       tags: ["React", "TypeScript", "Node.js"]
     },
     {
-      title: "Project Two",
-      description: "Another fantastic project showcasing your skills and creativity in software development.",
-      githubUrl: "https://github.com/MichelleNotTaylor/project-two",
-      tags: ["Python", "Machine Learning", "Data Science"]
+      title: "Alien Image Generator",
+      description: "An art generator that creates pixel images in random colors.",
+      githubUrl: "https://github.com/MichelleNotTaylor/shiny-image-generator",
+      tags: ["Python"]
     },
     {
-      title: "Project Three",
-      description: "An innovative solution to a real-world problem using modern technologies and best practices.",
-      githubUrl: "https://github.com/MichelleNotTaylor/project-three",
-      tags: ["JavaScript", "CSS", "HTML"]
+      title: "Billing App",
+      description: "A basic billing application to create and save bills for a cafe.",
+      githubUrl: "https://github.com/MichelleNotTaylor/net-ninja-golang",
+      tags: ["Golang"]
     }
   ];
 
