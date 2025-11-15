@@ -296,7 +296,7 @@ const PortfolioWebsite = () => {
               <input
                 type="email"
                 className="w-full px-4 py-3 rounded-2xl border-2 border-pink-200 focus:border-pink-500 focus:outline-none transition-colors"
-                placeholder="your.email@example.com"
+                placeholder="hiremichelletaylor@gmail.com"
               />
             </div>
             
