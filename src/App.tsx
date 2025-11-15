@@ -1,6 +1,5 @@
-import { useState, useEffect, type ChangeEvent, type ChangeEventHandler } from 'react';
+import { useState, useEffect, type ChangeEvent } from 'react';
 import { Menu, X, Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
-import nodemailer from 'nodemailer';
 
 interface EmailOptions {
   to: string | string[];
@@ -13,18 +12,8 @@ interface EmailOptions {
   attachments?: Array<{
     filename: string;
     path?: string;
-    content?: string | Buffer;
+    content?: string;
   }>;
-}
-
-interface SmtpConfig {
-  host: string;
-  port: number;
-  secure: boolean;
-  auth: {
-    user: string;
-    pass: string;
-  };
 }
 
 interface FormData {
