@@ -1,10 +1,44 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ChangeEvent, type ChangeEventHandler } from 'react';
 import { Menu, X, Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import nodemailer from 'nodemailer';
+
+interface EmailOptions {
+  to: string | string[];
+  subject: string;
+  text?: string;
+  html?: string;
+  from?: string;
+  cc?: string | string[];
+  bcc?: string | string[];
+  attachments?: Array<{
+    filename: string;
+    path?: string;
+    content?: string | Buffer;
+  }>;
+}
+
+interface SmtpConfig {
+  host: string;
+  port: number;
+  secure: boolean;
+  auth: {
+    user: string;
+    pass: string;
+  };
+}
+
+interface FormData {
+  name: string;
+  email: string;
+}
+
 
 const PortfolioWebsite = () => {
   const [currentPage, setCurrentPage] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [formData, setFormData] = useState<FormData>({ name: '', email: ''});
+  const [emailMessage, setEmailMessage] = useState<string | any>('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +68,22 @@ const PortfolioWebsite = () => {
       tags: ["Golang"]
     }
   ];
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleTextAreaChange = (event: { target: { value: any; }; }) => {
+    setEmailMessage(event.target.value);
+  }
+
+  const handleEmail = async() => {
+    await sendEmail(emailOptions);
+  }
 
   const Navigation = () => (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -226,6 +276,23 @@ const PortfolioWebsite = () => {
     </div>
   );
 
+async function sendEmail(
+  options: EmailOptions
+): Promise<void>{
+    const recipient = 'hiremichelletaylor@gmail.com';
+    const subject = options.subject;
+    const body = emailMessage;
+    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  }
+
+const emailOptions: EmailOptions = {
+  to: 'hiremichelletaylor@gmail.com',
+  from: formData.email,
+  subject: `New message from ${formData.name} at ${formData.email} via portfolio`,
+  text: emailMessage,
+};
+
   const ContactPage = () => (
     <div className="min-h-screen pt-32 pb-20 px-6 animate-fadeIn">
       <div className="max-w-4xl mx-auto">
@@ -288,6 +355,7 @@ const PortfolioWebsite = () => {
                 type="text"
                 className="w-full px-4 py-3 rounded-2xl border-2 border-pink-200 focus:border-pink-500 focus:outline-none transition-colors"
                 placeholder="Your name"
+                onChange={handleChange}
               />
             </div>
             
@@ -296,7 +364,8 @@ const PortfolioWebsite = () => {
               <input
                 type="email"
                 className="w-full px-4 py-3 rounded-2xl border-2 border-pink-200 focus:border-pink-500 focus:outline-none transition-colors"
-                placeholder="hiremichelletaylor@gmail.com"
+                placeholder="youremail@email.com"
+                onChange={handleChange}
               />
             </div>
             
@@ -306,12 +375,14 @@ const PortfolioWebsite = () => {
                 rows={6}
                 className="w-full px-4 py-3 rounded-2xl border-2 border-pink-200 focus:border-pink-500 focus:outline-none transition-colors resize-none"
                 placeholder="Tell me about your project or just say hi!"
+                onChange={handleTextAreaChange}
               />
             </div>
             
             <button
               type="submit"
               className="w-full px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+              onClick={handleEmail}
             >
               Send Message
             </button>
