@@ -26,7 +26,8 @@ const PortfolioWebsite = () => {
   const [currentPage, setCurrentPage] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [formData, setFormData] = useState<FormData>({ name: '', email: ''});
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [emailMessage, setEmailMessage] = useState<string | any>('');
 
   useEffect(() => {
@@ -57,21 +58,21 @@ const PortfolioWebsite = () => {
       tags: ["Golang"]
     }
   ];
+  
+  const handleNameChange = (event: { target: { value: any; }; }) => {
+    setName(event.target.value);
+  };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData(prevFormData => ({
-      ...prevFormData,
-      [name]: value,
-    }));
+  const handleEmailChange = (event: { target: { value: any; }; }) => {
+    setEmail(event.target.value);
   };
 
   const handleTextAreaChange = (event: { target: { value: any; }; }) => {
     setEmailMessage(event.target.value);
   }
 
-  const handleEmail = async() => {
-    await sendEmail(emailOptions);
+  const handleEmailSend = async() => {
+    // TODO: Create function to utilize name, email, and email message to send an email upon button click.
   }
 
   const Navigation = () => (
@@ -265,23 +266,6 @@ const PortfolioWebsite = () => {
     </div>
   );
 
-async function sendEmail(
-  options: EmailOptions
-): Promise<void>{
-    const recipient = 'hiremichelletaylor@gmail.com';
-    const subject = options.subject;
-    const body = emailMessage;
-    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
-  }
-
-const emailOptions: EmailOptions = {
-  to: 'hiremichelletaylor@gmail.com',
-  from: formData.email,
-  subject: `New message from ${formData.name} at ${formData.email} via portfolio`,
-  text: emailMessage,
-};
-
   const ContactPage = () => (
     <div className="min-h-screen pt-32 pb-20 px-6 animate-fadeIn">
       <div className="max-w-4xl mx-auto">
@@ -344,7 +328,7 @@ const emailOptions: EmailOptions = {
                 type="text"
                 className="w-full px-4 py-3 rounded-2xl border-2 border-pink-200 focus:border-pink-500 focus:outline-none transition-colors"
                 placeholder="Your name"
-                onChange={handleChange}
+                onChange={handleNameChange}
               />
             </div>
             
@@ -354,7 +338,7 @@ const emailOptions: EmailOptions = {
                 type="email"
                 className="w-full px-4 py-3 rounded-2xl border-2 border-pink-200 focus:border-pink-500 focus:outline-none transition-colors"
                 placeholder="youremail@email.com"
-                onChange={handleChange}
+                onChange={handleEmailChange}
               />
             </div>
             
@@ -371,7 +355,7 @@ const emailOptions: EmailOptions = {
             <button
               type="submit"
               className="w-full px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-              onClick={handleEmail}
+              onClick={handleEmailSend}
             >
               Send Message
             </button>
