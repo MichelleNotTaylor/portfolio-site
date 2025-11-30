@@ -1,26 +1,7 @@
-import { useState, useEffect, type ChangeEvent } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
-
-interface EmailOptions {
-  to: string | string[];
-  subject: string;
-  text?: string;
-  html?: string;
-  from?: string;
-  cc?: string | string[];
-  bcc?: string | string[];
-  attachments?: Array<{
-    filename: string;
-    path?: string;
-    content?: string;
-  }>;
-}
-
-interface FormData {
-  name: string;
-  email: string;
-}
-
+import * as dotenv from 'dotenv';
+dotenv.config(); 
 
 const PortfolioWebsite = () => {
   const [currentPage, setCurrentPage] = useState('home');
@@ -29,6 +10,7 @@ const PortfolioWebsite = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [emailMessage, setEmailMessage] = useState<string | any>('');
+  const michellesEmail = process.env.MICHELLES_EMAIL;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,20 +41,22 @@ const PortfolioWebsite = () => {
     }
   ];
   
-  const handleNameChange = (event: { target: { value: any; }; }) => {
-    setName(event.target.value);
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
   };
 
-  const handleEmailChange = (event: { target: { value: any; }; }) => {
-    setEmail(event.target.value);
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
   };
 
-  const handleTextAreaChange = (event: { target: { value: any; }; }) => {
-    setEmailMessage(event.target.value);
+  const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setEmailMessage(e.target.value);
   }
 
   const handleEmailSend = async() => {
-    // TODO: Create function to utilize name, email, and email message to send an email upon button click.
+    if (email && name && emailMessage) {
+      window.location.href = `mailto:${michellesEmail}?subject=You have a new message from ${name} at ${email}&body=${emailMessage}!`;
+    }
   }
 
   const Navigation = () => (
