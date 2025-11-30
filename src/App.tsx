@@ -1,16 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
-import * as dotenv from 'dotenv';
-dotenv.config(); 
 
 const PortfolioWebsite = () => {
   const [currentPage, setCurrentPage] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [emailMessage, setEmailMessage] = useState<string | any>('');
-  const michellesEmail = process.env.MICHELLES_EMAIL;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,23 +34,16 @@ const PortfolioWebsite = () => {
       tags: ["Golang"]
     }
   ];
-  
-  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  };
-
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
-
-  const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setEmailMessage(e.target.value);
-  }
 
   const handleEmailSend = async() => {
-    if (email && name && emailMessage) {
-      window.location.href = `mailto:${michellesEmail}?subject=You have a new message from ${name} at ${email}&body=${emailMessage}!`;
-    }
+    const nameInput = document.getElementById("nameInput") as HTMLInputElement;
+    const emailInput = document.getElementById("emailInput") as HTMLInputElement;
+    const messageInput = document.getElementById("messageInput") as HTMLTextAreaElement;
+    console.log(nameInput);
+    console.log(emailInput);
+    console.log(messageInput);
+
+    window.location.href = `mailto:hiremichelletaylor@gmail.com?subject=You have a new message from ${nameInput} at ${emailInput}?body=${messageInput}`;
   }
 
   const Navigation = () => (
@@ -312,7 +299,7 @@ const PortfolioWebsite = () => {
                 type="text"
                 className="w-full px-4 py-3 rounded-2xl border-2 border-pink-200 focus:border-pink-500 focus:outline-none transition-colors"
                 placeholder="Your name"
-                onChange={handleNameChange}
+                id="nameInput"
               />
             </div>
             
@@ -322,7 +309,7 @@ const PortfolioWebsite = () => {
                 type="email"
                 className="w-full px-4 py-3 rounded-2xl border-2 border-pink-200 focus:border-pink-500 focus:outline-none transition-colors"
                 placeholder="youremail@email.com"
-                onChange={handleEmailChange}
+                id="emailInput"
               />
             </div>
             
@@ -332,7 +319,7 @@ const PortfolioWebsite = () => {
                 rows={6}
                 className="w-full px-4 py-3 rounded-2xl border-2 border-pink-200 focus:border-pink-500 focus:outline-none transition-colors resize-none"
                 placeholder="Tell me about your project or just say hi!"
-                onChange={handleTextAreaChange}
+                id="messageInput"
               />
             </div>
             
