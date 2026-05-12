@@ -8,7 +8,7 @@ export default function ProjectsPage() {
 
         {/* Section header */}
         <div className="mb-16 animate-slideDown">
-          <p className="text-xs font-semibold tracking-widest text-blue-600 dark:text-blue-400 uppercase mb-3">
+          <p className="text-xs font-semibold tracking-widest text-pink-600 dark:text-pink-400 uppercase mb-3">
             Selected Work
           </p>
           <h2
@@ -27,7 +27,7 @@ export default function ProjectsPage() {
           {projects.map((project, index) => (
             <li
               key={index}
-              className="group relative flex flex-col bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 hover:border-blue-300 dark:hover:border-blue-800 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-slate-200/60 dark:hover:shadow-slate-950/60 transition-all duration-300 animate-slideUp"
+              className="group relative flex flex-col bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 hover:border-pink-300 dark:hover:border-pink-800 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-slate-200/60 dark:hover:shadow-slate-950/60 transition-all duration-300 animate-slideUp"
               style={{ animationDelay: `${index * 0.08}s` }}
             >
               {/* Tags */}
@@ -35,7 +35,7 @@ export default function ProjectsPage() {
                 {project.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="text-xs font-medium px-2 py-0.5 rounded-md bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-400 border border-blue-100 dark:border-blue-900/60"
+                    className="text-xs font-medium px-2 py-0.5 rounded-md bg-pink-50 dark:bg-pink-950/60 text-pink-700 dark:text-pink-400 border border-pink-100 dark:border-pink-900/60"
                   >
                     {tag}
                   </span>
@@ -43,7 +43,7 @@ export default function ProjectsPage() {
               </div>
 
               {/* Title */}
-              <h3 className="text-base font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 mb-2">
+              <h3 className="text-base font-semibold text-slate-900 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors duration-200 mb-2">
                 {project.title}
               </h3>
 
@@ -59,7 +59,7 @@ export default function ProjectsPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`View ${project.title} source code on GitHub (opens in new tab)`}
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-150 group/link"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-pink-600 dark:hover:text-pink-400 transition-colors duration-150 group/link"
                 >
                   <Github size={14} aria-hidden="true" />
                   View on GitHub

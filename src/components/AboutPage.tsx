@@ -7,7 +7,7 @@ export default function AboutPage() {
 
         {/* Section header */}
         <div className="mb-16 animate-slideDown">
-          <p className="text-xs font-semibold tracking-widest text-blue-600 dark:text-blue-400 uppercase mb-3">
+          <p className="text-xs font-semibold tracking-widest text-pink-600 dark:text-pink-400 uppercase mb-3">
             Background
           </p>
           <h2
@@ -74,7 +74,7 @@ export default function AboutPage() {
               new opportunities to learn something new, whether it's a programming language, a design pattern, or a
               life lesson from my kids.
             </p>
-            <p className="text-base font-medium text-blue-600 dark:text-blue-400 pt-2">
+            <p className="text-base font-medium text-pink-600 dark:text-pink-400 pt-2">
               Always learning, ever changing. 🌸
             </p>
           </div>

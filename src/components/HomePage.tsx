@@ -12,7 +12,7 @@ export default function HomePage({ setCurrentPage }: HomePageProps) {
       className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden"
     >
       {/* Layered background */}
-      <div className="absolute inset-0 bg-slate-50 dark:bg-[#0A0F1C]" aria-hidden="true" />
+      <div className="absolute inset-0 bg-slate-50 dark:bg-[#0d0914]" aria-hidden="true" />
       <div className="absolute inset-0 hero-dot-grid" aria-hidden="true" />
       <div className="absolute inset-0 hero-glow" aria-hidden="true" />
 
@@ -34,7 +34,7 @@ export default function HomePage({ setCurrentPage }: HomePageProps) {
               alt=""
               className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover ring-4 ring-white dark:ring-slate-900 shadow-xl shadow-slate-300/50 dark:shadow-slate-950/50"
             />
-            <div className="absolute -inset-1.5 rounded-full border-2 border-blue-200/60 dark:border-blue-800/40" />
+            <div className="absolute -inset-1.5 rounded-full border-2 border-pink-200/60 dark:border-pink-800/40" />
           </div>
         </div>
 
@@ -66,7 +66,7 @@ export default function HomePage({ setCurrentPage }: HomePageProps) {
         >
           <button
             onClick={() => setCurrentPage('projects')}
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white text-sm font-semibold shadow-sm hover:shadow-md hover:shadow-blue-500/20 transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-pink-600 hover:bg-pink-700 dark:bg-pink-600 dark:hover:bg-pink-500 text-white text-sm font-semibold shadow-sm hover:shadow-md hover:shadow-pink-500/20 transition-all duration-200"
           >
             View My Work
             <ArrowRight size={15} aria-hidden="true" />

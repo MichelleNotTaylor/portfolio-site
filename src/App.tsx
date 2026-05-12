@@ -25,11 +25,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0A0F1C] transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0d0914] transition-colors duration-300">
       {/* Skip navigation for keyboard/screen-reader users */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:font-medium focus:text-sm focus:shadow-lg"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-pink-600 focus:text-white focus:rounded-lg focus:font-medium focus:text-sm focus:shadow-lg"
       >
         Skip to main content
       </a>

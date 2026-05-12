@@ -30,7 +30,7 @@ const CONTACT_LINKS = [
 ] as const;
 
 const inputCls =
-  'w-full bg-white dark:bg-slate-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 dark:focus:border-blue-400 transition-colors duration-200';
+  'w-full bg-white dark:bg-slate-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500/30 focus:border-pink-500 dark:focus:border-pink-400 transition-colors duration-200';
 
 export default function ContactPage() {
   const [formState, setFormState] = useState<FormState>({ name: '', email: '', message: '' });
@@ -87,7 +87,7 @@ export default function ContactPage() {
 
         {/* Section header */}
         <div className="mb-16 animate-slideDown">
-          <p className="text-xs font-semibold tracking-widest text-blue-600 dark:text-blue-400 uppercase mb-3">
+          <p className="text-xs font-semibold tracking-widest text-pink-600 dark:text-pink-400 uppercase mb-3">
             Contact
           </p>
           <h2
@@ -117,12 +117,12 @@ export default function ContactPage() {
                     aria-label={external ? `${label}: ${value} (opens in new tab)` : `${label}: ${value}`}
                     className="flex items-start gap-4 group"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/50 border border-blue-100 dark:border-blue-900/60 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/60 transition-colors duration-150">
-                      <Icon size={17} className="text-blue-600 dark:text-blue-400" aria-hidden="true" />
+                    <div className="w-10 h-10 rounded-xl bg-pink-50 dark:bg-pink-950/50 border border-pink-100 dark:border-pink-900/60 flex items-center justify-center flex-shrink-0 group-hover:bg-pink-100 dark:group-hover:bg-pink-900/60 transition-colors duration-150">
+                      <Icon size={17} className="text-pink-600 dark:text-pink-400" aria-hidden="true" />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-slate-900 dark:text-white">{label}</p>
-                      <p className="text-sm text-slate-500 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-150 break-all">
+                      <p className="text-sm text-slate-500 dark:text-slate-400 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors duration-150 break-all">
                         {value}
                       </p>
                     </div>
@@ -250,7 +250,7 @@ export default function ContactPage() {
                     type="submit"
                     disabled={!captchaToken || submitStatus === 'sending'}
                     aria-disabled={!captchaToken || submitStatus === 'sending'}
-                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white text-sm font-semibold shadow-sm hover:shadow-md hover:shadow-blue-500/20 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600 disabled:hover:shadow-sm transition-all duration-200"
+                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-pink-600 hover:bg-pink-700 dark:bg-pink-600 dark:hover:bg-pink-500 text-white text-sm font-semibold shadow-sm hover:shadow-md hover:shadow-pink-500/20 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-pink-600 disabled:hover:shadow-sm transition-all duration-200"
                   >
                     <Send size={14} aria-hidden="true" />
                     {submitStatus === 'sending' ? 'Sending…' : 'Send Message'}

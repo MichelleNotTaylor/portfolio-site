@@ -28,12 +28,12 @@ export default function Navigation({ currentPage, setCurrentPage, isDark, toggle
   };
 
   const scrolledCls = isScrolled
-    ? 'bg-white/90 dark:bg-[#0A0F1C]/90 backdrop-blur-md border-b border-slate-200/70 dark:border-slate-800/70 shadow-sm'
+    ? 'bg-white/90 dark:bg-[#0d0914]/90 backdrop-blur-md border-b border-slate-200/70 dark:border-slate-800/70 shadow-sm'
     : '';
 
   const navItemCls = (page: Page) =>
     page === currentPage
-      ? 'px-3 py-2 rounded-md text-sm font-medium capitalize bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-400'
+      ? 'px-3 py-2 rounded-md text-sm font-medium capitalize bg-pink-50 dark:bg-pink-950/60 text-pink-700 dark:text-pink-400'
       : 'px-3 py-2 rounded-md text-sm font-medium capitalize text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100/80 dark:hover:bg-slate-800/60 transition-colors duration-150';
 
   const iconBtnCls =
@@ -48,7 +48,7 @@ export default function Navigation({ currentPage, setCurrentPage, isDark, toggle
           <button
             onClick={() => navigate('home')}
             aria-label="Go to home page"
-            className="font-mono text-sm font-bold text-white bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600 px-2.5 py-1.5 rounded-md transition-colors duration-150"
+            className="font-mono text-sm font-bold text-white bg-pink-600 dark:bg-pink-500 hover:bg-pink-700 dark:hover:bg-pink-600 px-2.5 py-1.5 rounded-md transition-colors duration-150"
           >
             MT
           </button>
