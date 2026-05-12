@@ -1,2 +1,1 @@
-declare const PortfolioWebsite: () => import("react/jsx-runtime").JSX.Element;
-export default PortfolioWebsite;
+export default function App(): import("react/jsx-runtime").JSX.Element;
