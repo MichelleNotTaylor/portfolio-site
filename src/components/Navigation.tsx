@@ -27,7 +27,7 @@ export default function Navigation({ currentPage, setCurrentPage, isDark, toggle
     setIsMenuOpen(false);
   };
 
-  const scrolledCls = isScrolled
+  const scrolledCls = isScrolled || isMenuOpen
     ? 'bg-white/90 dark:bg-[#0d0914]/90 backdrop-blur-md border-b border-slate-200/70 dark:border-slate-800/70 shadow-sm'
     : '';
 
@@ -97,7 +97,7 @@ export default function Navigation({ currentPage, setCurrentPage, isDark, toggle
         <div id={menuId} hidden={!isMenuOpen}>
           <nav aria-label="Mobile navigation">
             <ul
-              className="md:hidden py-3 border-t border-slate-200 dark:border-slate-800 space-y-0.5"
+              className="md:hidden py-3 border-t border-slate-200 dark:border-slate-800 space-y-0.5 bg-white dark:bg-[#0d0914]"
               role="list"
             >
               {PAGES.map((page) => (
